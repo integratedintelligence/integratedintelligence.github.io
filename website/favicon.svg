@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B6E8F"/>
+      <stop offset="100%" stop-color="#1E3A5F"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E8C170"/>
+      <stop offset="100%" stop-color="#D4A84B"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Badge circle -->
+  <circle cx="32" cy="32" r="30" fill="url(#bg)"/>
+
+  <!-- Left i -->
+  <rect x="14" y="28" width="6" height="17" rx="1.5" fill="#FFFFFF"/>
+  <circle cx="17" cy="23.5" r="3.5" fill="#FFFFFF"/>
+
+  <!-- Centre i (gold, taller) -->
+  <rect x="29" y="25" width="6" height="20" rx="1.5" fill="url(#gold)"/>
+  <circle cx="32" cy="20.5" r="3.5" fill="url(#gold)"/>
+
+  <!-- Right i -->
+  <rect x="44" y="28" width="6" height="17" rx="1.5" fill="#FFFFFF"/>
+  <circle cx="47" cy="23.5" r="3.5" fill="#FFFFFF"/>
+
+  <!-- Baseline bar -->
+  <rect x="14" y="48" width="36" height="2" rx="1" fill="url(#gold)" opacity="0.85"/>
+</svg>

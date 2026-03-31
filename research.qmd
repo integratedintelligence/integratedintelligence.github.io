@@ -1,0 +1,15 @@
+---
+title: "Research"
+---
+
+We support applied and policy‑relevant research on:
+
+- Human‑AI teaming & evaluation
+- Safety, privacy, and auditing for ML
+- AI readiness & innovation ecosystems
+- Supply chains, semiconductors, and compute infrastructure
+
+**Outputs**
+- Working papers and briefs (DOIs via Zenodo)
+- Open datasets and code (GitHub org)
+- Practitioner guides and teaching materials

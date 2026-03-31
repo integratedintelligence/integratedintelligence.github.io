@@ -1,0 +1,48 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Integrated Intelligence Institute"
+  site-url: https://www.integratedintelligenceinstitute.org
+  description: "Opportunities and training for the next generation of integrated intelligence engineers and scientists."
+  favicon: images/favicon.png
+  image: images/logo.svg
+  repo-url: https://github.com/integratedintelligence/integratedintelligence.github.io
+  open-graph: true
+  twitter-card: true
+  search: true
+  navbar:
+    logo: images/logo.svg
+    right:
+      - text: Programs
+        href: programs.qmd
+      - text: Research
+        href: research.qmd
+      - text: Partners
+        href: partners.qmd
+      - text: Apply
+        href: apply.qmd
+      - text: News
+        href: news.qmd
+      - text: About
+        href: about.qmd
+      - text: Contact
+        href: contact.qmd
+  page-footer:
+    left: "© 2026 Integrated Intelligence Institute"
+
+format:
+  html:
+    theme: [default, styles/theme.scss]
+    toc: false
+    smooth-scroll: true
+    grid:
+      sidebar-width: 280px
+      body-width: 900px
+      margin-width: 280px
+    code-copy: true
+    link-external-icon: true
+    link-external-newwindow: true
+
+metadata-files: []

@@ -1,0 +1,39 @@
+---
+title: ""
+page-layout: full
+---
+
+<div class="hero p-5 mb-4">
+
+<h1>Training the Next Generation of Integrated Intelligence Engineers & Scientists</h1>
+<p class="lead mt-3">We convene interns, faculty, and industry partners to advance human–AI systems, trustworthy ML, and socio‑technical integration across the Pacific.</p>
+
+<div class="mt-4">
+<p><a class="btn-iii" href="apply.html">Apply for Internships</a>
+<a class="btn btn-outline-light ms-2" href="/programs/">Explore Programs</a></p>
+</div>
+
+</div>
+
+## What we do
+
+::: {.grid}
+::: {.g-col-4}
+### Internships
+Funded research placements and OPT/CPT-aligned opportunities...
+:::
+::: {.g-col-4}
+### Training
+Short courses and bootcamps in ML, data engineering...
+:::
+::: {.g-col-4}
+### Research & Policy
+Collaborative studies, open data resources...
+:::
+:::
+
+## Featured updates
+
+
+
+**Welcome!** See our [news](news.html) for announcements, deadlines, and events.

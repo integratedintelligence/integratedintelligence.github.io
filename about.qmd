@@ -1,0 +1,12 @@
+---
+title: "About"
+---
+
+Our mission is to expand opportunities and training for the next generation of integrated intelligence engineers and scientists. We bridge research and practice through fellowships, short courses, and collaborative projects across academia, industry, and the public sector.
+
+**Guiding principles**
+
+- Human‑centered, trustworthy AI
+- Cross‑disciplinary integration (engineering, social science, policy)
+- Open, reproducible research
+- Bilateral collaboration and career pathways
