@@ -1,1 +1,0 @@
-# integratedintelligence.github.io
