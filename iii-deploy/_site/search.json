@@ -1,0 +1,135 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "\nTraining the Next Generation of Integrated Intelligence Engineers & Scientists\n",
+    "section": "",
+    "text": "We convene interns, faculty, and industry partners to advance human–AI systems, trustworthy ML, and socio‑technical integration across the Pacific.\n\n\n\nApply for Internships Explore Programs"
+  },
+  {
+    "objectID": "index.html#what-we-do",
+    "href": "index.html#what-we-do",
+    "title": "\nTraining the Next Generation of Integrated Intelligence Engineers & Scientists\n",
+    "section": "What we do",
+    "text": "What we do\n\n\nInternships\nFunded research placements and OPT/CPT-aligned opportunities…\n\n\nTraining\nShort courses and bootcamps in ML, data engineering…\n\n\nResearch & Policy\nCollaborative studies, open data resources…"
+  },
+  {
+    "objectID": "index.html#featured-updates",
+    "href": "index.html#featured-updates",
+    "title": "\nTraining the Next Generation of Integrated Intelligence Engineers & Scientists\n",
+    "section": "Featured updates",
+    "text": "Featured updates\nWelcome! See our news for announcements, deadlines, and events."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Our mission is to expand opportunities and training for the next generation of integrated intelligence engineers and scientists. We bridge research and practice through fellowships, short courses, and collaborative projects across academia, industry, and the public sector.\nGuiding principles\n\nHuman‑centered, trustworthy AI\nCross‑disciplinary integration (engineering, social science, policy)\nOpen, reproducible research\nBilateral collaboration and career pathways"
+  },
+  {
+    "objectID": "posts/2025-10-10-welcome.html",
+    "href": "posts/2025-10-10-welcome.html",
+    "title": "Welcome to the Integrated Intelligence Institute",
+    "section": "",
+    "text": "We are live! Explore our programs, apply to fellowships, and follow our research updates."
+  },
+  {
+    "objectID": "partners.html",
+    "href": "partners.html",
+    "title": "Partners",
+    "section": "",
+    "text": "We collaborate with universities, labs, startups, and public agencies. Interested in partnering? Contact us to co‑design a program or host fellows."
+  },
+  {
+    "objectID": "apply.html",
+    "href": "apply.html",
+    "title": "Apply",
+    "section": "",
+    "text": "Upcoming cohorts - Winter 2026 Internship (Jan–Mar): applications open Oct 25 - Summer 2026 Internship (Jun–Aug): applications open April 1\nEligibility - Undergraduate, master’s, or doctoral students in relevant fields - For U.S. placements, OPT/CPT or equivalent work authorization as applicable\nHow to apply 1. Prepare statement (500–800 words), CV, and portfolio (GitHub/papers) 2. Request 1–2 references 3. Submit via our portal (coming soon)"
+  },
+  {
+    "objectID": "programs.html",
+    "href": "programs.html",
+    "title": "Programs",
+    "section": "",
+    "text": "Fellowships (OPT/CPT‑compatible)\n\n10–12 week research placements with mentors in academia/industry\nStipends; seminar series; capstone presentation; post‑program publishing support\n\n\n\nShort Courses & Bootcamps\n\nTopics: ML engineering, data pipelines, evaluation & red‑teaming, AI governance\nFormats: 1–2 day intensive, 4–6 week evening tracks\n\n\n\nWorkshops & Summer Institute\n\nAnnual, theme‑based convenings with hands‑on labs and policy roundtables"
+  },
+  {
+    "objectID": "research.html",
+    "href": "research.html",
+    "title": "Research",
+    "section": "",
+    "text": "We support applied and policy‑relevant research on:\n\nHuman‑AI teaming & evaluation\nSafety, privacy, and auditing for ML\nAI readiness & innovation ecosystems\nSupply chains, semiconductors, and compute infrastructure\n\nOutputs - Working papers and briefs (DOIs via Zenodo) - Open datasets and code (GitHub org) - Practitioner guides and teaching materials"
+  },
+  {
+    "objectID": "contact.html",
+    "href": "contact.html",
+    "title": "Contact",
+    "section": "",
+    "text": "Email: integratedintelligence1@gmail.com\nGitHub: https://github.com/integratedintelligence\nAddress:"
+  },
+  {
+    "objectID": "news.html",
+    "href": "news.html",
+    "title": "News",
+    "section": "",
+    "text": "Latest announcements, deadlines, and research highlights.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome to the Integrated Intelligence Institute\n\n\n\nannouncement\n\n\n\n\n\n\n\n\n\nOct 10, 2025\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "website/iii-website-review.html",
+    "href": "website/iii-website-review.html",
+    "title": "Integrated Intelligence Institute — Quarto Website Review",
+    "section": "",
+    "text": "Date: March 31, 2026 Scope: Source files (_quarto.yml, *.qmd) and live rendering at integratedintelligenceinstitute.org\n\n\n\n\n\nThe most visible defect: the hero-section buttons and the “What we do” card interiors render as raw HTML source code rather than formatted elements. On the live site, visitors see literal strings like &lt;a class=\"btn-iii\" href=\"apply.qmd\"&gt;Apply for Fellowships&lt;/a&gt; and &lt;h3&gt;Fellowships&lt;/h3&gt;.\nRoot cause. Pandoc (which Quarto uses internally) distinguishes block-level HTML elements (&lt;div&gt;, &lt;p&gt;, &lt;h1&gt;–&lt;h6&gt;, &lt;table&gt;, etc.) from inline elements (&lt;a&gt;, &lt;span&gt;, &lt;em&gt;, etc.). A line that begins with an inline tag like &lt;a&gt; is not recognized as a raw HTML block; Pandoc escapes it and renders the markup as visible text. Similarly, &lt;h3&gt; and &lt;p&gt; tags nested inside &lt;div&gt; blocks can fail to parse when Pandoc’s block-vs-inline heuristics are disrupted by the surrounding container structure.\nRecommended fix. Replace the raw HTML cards and buttons with Quarto-native constructs. For the buttons, wrap them in a &lt;div&gt; or &lt;p&gt; block so Pandoc sees a block-level parent. For the three-column cards, use a Quarto grid layout (::: {.grid} / ::: {.g-col-4}) or Quarto’s built-in card shortcodes instead of raw &lt;div class=\"iii-card\"&gt;. Example:\n::: {.grid}\n::: {.g-col-4}\n### Fellowships\nFunded research placements and OPT/CPT-aligned opportunities...\n:::\n::: {.g-col-4}\n### Training\nShort courses and bootcamps in ML, data engineering...\n:::\n::: {.g-col-4}\n### Research & Policy\nCollaborative studies, open data resources...\n:::\n:::\nFor the CTA buttons, use Quarto’s link-button class or wrap them properly:\n&lt;div class=\"mt-4\"&gt;\n&lt;p&gt;&lt;a class=\"btn-iii\" href=\"/apply/\"&gt;Apply for Fellowships&lt;/a&gt;\n&lt;a class=\"btn btn-outline-light ms-2\" href=\"/programs/\"&gt;Explore Programs&lt;/a&gt;&lt;/p&gt;\n&lt;/div&gt;\n\n\n\nEvery page footer displays the literal string © {{&lt; year &gt;}} Integrated Intelligence Institute instead of the current year. The {{&lt; year &gt;}} syntax is not a built-in Quarto shortcode. Either install a shortcode extension that provides it, define a custom Lua filter, or simply hardcode the year:\npage-footer:\n  left: \"© 2026 Integrated Intelligence Institute\"\nAlternatively, create a custom shortcode at _extensions/year/year.lua:\nreturn {\n  ['year'] = function(args, kwargs)\n    return pandoc.Str(os.date(\"%Y\"))\n  end\n}\n\n\n\n\n\n\n\nThe “Featured updates” callout links to https://www.notion.so/news/ — an apparent copy-paste artifact from Notion. It should read:\nSee our [news](/news/) for announcements, deadlines, and events.\n\n\n\nThe inline HTML &lt;a href=\"contact.qmd\"&gt;Contact us&lt;/a&gt; is rendered with the external-link icon (because link-external-icon: true in the config applies to anything Quarto can’t resolve as an internal link). Replace with a Quarto markdown link:\nInterested in partnering? [Contact us](/contact/) to co-design a program or host fellows.\n\n\n\n_quarto.yml declares site-url: https://www.integratedintelligenceinstitute.org, but the site resolves at the bare domain without www. This mismatch affects canonical URLs, OpenGraph og:url tags, and sitemap entries. Update to:\nsite-url: https://integratedintelligenceinstitute.org\n(Or configure a DNS/redirect so www resolves to the bare domain, and keep the YAML as-is.)\n\n\n\n\n\n\nEmail and GitHub URL are plain text, not hyperlinks. Use markdown links:\n- Email: [integratedintelligence1@gmail.com](mailto:integratedintelligence1@gmail.com)\n- GitHub: [integratedintelligence](https://github.com/integratedintelligence)\n“Address:” is empty. Either populate it or remove the line. A trailing colon with no content looks like an oversight to visitors.\nGmail address for an institutional site. Consider a domain-based email (e.g., info@integratedintelligenceinstitute.org) for professionalism and credibility.\n\n\n\n\n\n\n“Winter 2026 Internship (Jan–Mar): applications open Oct 25” — this deadline passed roughly five months ago (October 2025). If the cohort has been filled, replace with status text (“Cohort filled — next cycle opens …”). If not, clarify with a full date including year.\n“Summer 2026 Internship (Jun–Aug): applications open April 1” — this is tomorrow. Confirm the portal is ready to go live, or update the date.\n“Submit via our portal (coming soon)” — if the portal is still not live as of the April 1 deadline, applicants have no submission mechanism. This needs resolution urgently.\n\n\n\n\n\nSeveral pages consist of only a few lines and give the impression of an early-stage draft rather than a functioning institutional website:\n\n\n\n\n\n\n\n\nPage\nApproximate word count\nConcern\n\n\n\n\nAbout\n~50 words\nNo team bios, no institutional history, no governance structure\n\n\nPartners\n~25 words\nNo named partners, logos, or testimonials\n\n\nPrograms\n~60 words\nNo learning outcomes, instructor names, or syllabi\n\n\nResearch\n~50 words\nNo publications, project descriptions, or named investigators\n\n\nContact\n~15 words\nIncomplete (missing address), no contact form\n\n\n\nRecommendations:\n\nAbout: Add a mission statement with more detail, founding context, advisory board or leadership team, and institutional affiliations.\nPartners: Name at least a few partner organizations (with permission), add logos, and describe the nature of each collaboration.\nPrograms: Expand each program with learning objectives, duration details, prerequisites, and past cohort highlights.\nResearch: List at least working-paper titles, link to the Zenodo/GitHub repositories mentioned, and name principal investigators.\nContact: Add a contact form (Quarto supports embedding Google Forms, Formspree, or similar).\n\n\n\n\n\n\n\nOnly the site-level description is set in _quarto.yml. Adding description: to each page’s YAML front matter improves SEO (populates &lt;meta name=\"description\"&gt;) and produces better OpenGraph/Twitter card previews when pages are shared individually.\n\n\n\nThe config references images/favicon.png and images/logo.svg, but neither renders in the browser tab or navbar. Verify that these files exist in the repository and are deployed correctly.\n\n\n\nWith toc: true set globally, the homepage displays an “On this page” sidebar with just two entries (“What we do” and “Featured updates”). For a landing page with page-layout: full, suppress the TOC:\n---\ntitle: \"\"\npage-layout: full\ntoc: false\n---\n\n\n\nThe listing page works, but a single announcement from October 2025 (“We are live!”) is five months old. Regular content updates — even brief ones announcing application windows or new partnerships — would signal that the institute is active.\n\n\n\n_quarto.yml references styles/theme.scss, which presumably defines the .hero, .grid-3, .iii-card, and .btn-iii classes. If this file is incomplete or missing from the deployment, those classes have no effect and the homepage layout degrades (as observed). Ensure the SCSS file is committed and contains proper definitions for all custom classes.\n\n\n\n\n\n\nFix raw HTML rendering on homepage — convert to Quarto-native grid/div syntax\nFix the footer year shortcode — hardcode or implement a Lua shortcode\nCorrect the broken Notion link in the index callout\nUpdate stale application dates and confirm the portal is ready\nFix Contact page — add hyperlinks, remove or populate the empty address field\nFix the Partners page link — use markdown syntax instead of raw &lt;a&gt;\nReconcile site-url with the actual domain (drop www)\nSuppress TOC on the homepage\nExpand thin content across About, Partners, Programs, Research, and Contact\nAdd page-level description metadata for SEO\nVerify favicon and logo deployment\nPublish fresh News posts to show institutional activity"
+  },
+  {
+    "objectID": "website/iii-website-review.html#critical-rendering-bugs",
+    "href": "website/iii-website-review.html#critical-rendering-bugs",
+    "title": "Integrated Intelligence Institute — Quarto Website Review",
+    "section": "",
+    "text": "The most visible defect: the hero-section buttons and the “What we do” card interiors render as raw HTML source code rather than formatted elements. On the live site, visitors see literal strings like &lt;a class=\"btn-iii\" href=\"apply.qmd\"&gt;Apply for Fellowships&lt;/a&gt; and &lt;h3&gt;Fellowships&lt;/h3&gt;.\nRoot cause. Pandoc (which Quarto uses internally) distinguishes block-level HTML elements (&lt;div&gt;, &lt;p&gt;, &lt;h1&gt;–&lt;h6&gt;, &lt;table&gt;, etc.) from inline elements (&lt;a&gt;, &lt;span&gt;, &lt;em&gt;, etc.). A line that begins with an inline tag like &lt;a&gt; is not recognized as a raw HTML block; Pandoc escapes it and renders the markup as visible text. Similarly, &lt;h3&gt; and &lt;p&gt; tags nested inside &lt;div&gt; blocks can fail to parse when Pandoc’s block-vs-inline heuristics are disrupted by the surrounding container structure.\nRecommended fix. Replace the raw HTML cards and buttons with Quarto-native constructs. For the buttons, wrap them in a &lt;div&gt; or &lt;p&gt; block so Pandoc sees a block-level parent. For the three-column cards, use a Quarto grid layout (::: {.grid} / ::: {.g-col-4}) or Quarto’s built-in card shortcodes instead of raw &lt;div class=\"iii-card\"&gt;. Example:\n::: {.grid}\n::: {.g-col-4}\n### Fellowships\nFunded research placements and OPT/CPT-aligned opportunities...\n:::\n::: {.g-col-4}\n### Training\nShort courses and bootcamps in ML, data engineering...\n:::\n::: {.g-col-4}\n### Research & Policy\nCollaborative studies, open data resources...\n:::\n:::\nFor the CTA buttons, use Quarto’s link-button class or wrap them properly:\n&lt;div class=\"mt-4\"&gt;\n&lt;p&gt;&lt;a class=\"btn-iii\" href=\"/apply/\"&gt;Apply for Fellowships&lt;/a&gt;\n&lt;a class=\"btn btn-outline-light ms-2\" href=\"/programs/\"&gt;Explore Programs&lt;/a&gt;&lt;/p&gt;\n&lt;/div&gt;\n\n\n\nEvery page footer displays the literal string © {{&lt; year &gt;}} Integrated Intelligence Institute instead of the current year. The {{&lt; year &gt;}} syntax is not a built-in Quarto shortcode. Either install a shortcode extension that provides it, define a custom Lua filter, or simply hardcode the year:\npage-footer:\n  left: \"© 2026 Integrated Intelligence Institute\"\nAlternatively, create a custom shortcode at _extensions/year/year.lua:\nreturn {\n  ['year'] = function(args, kwargs)\n    return pandoc.Str(os.date(\"%Y\"))\n  end\n}"
+  },
+  {
+    "objectID": "website/iii-website-review.html#broken-and-misconfigured-links",
+    "href": "website/iii-website-review.html#broken-and-misconfigured-links",
+    "title": "Integrated Intelligence Institute — Quarto Website Review",
+    "section": "",
+    "text": "The “Featured updates” callout links to https://www.notion.so/news/ — an apparent copy-paste artifact from Notion. It should read:\nSee our [news](/news/) for announcements, deadlines, and events.\n\n\n\nThe inline HTML &lt;a href=\"contact.qmd\"&gt;Contact us&lt;/a&gt; is rendered with the external-link icon (because link-external-icon: true in the config applies to anything Quarto can’t resolve as an internal link). Replace with a Quarto markdown link:\nInterested in partnering? [Contact us](/contact/) to co-design a program or host fellows.\n\n\n\n_quarto.yml declares site-url: https://www.integratedintelligenceinstitute.org, but the site resolves at the bare domain without www. This mismatch affects canonical URLs, OpenGraph og:url tags, and sitemap entries. Update to:\nsite-url: https://integratedintelligenceinstitute.org\n(Or configure a DNS/redirect so www resolves to the bare domain, and keep the YAML as-is.)"
+  },
+  {
+    "objectID": "website/iii-website-review.html#contact-page-issues-contact.qmd",
+    "href": "website/iii-website-review.html#contact-page-issues-contact.qmd",
+    "title": "Integrated Intelligence Institute — Quarto Website Review",
+    "section": "",
+    "text": "Email and GitHub URL are plain text, not hyperlinks. Use markdown links:\n- Email: [integratedintelligence1@gmail.com](mailto:integratedintelligence1@gmail.com)\n- GitHub: [integratedintelligence](https://github.com/integratedintelligence)\n“Address:” is empty. Either populate it or remove the line. A trailing colon with no content looks like an oversight to visitors.\nGmail address for an institutional site. Consider a domain-based email (e.g., info@integratedintelligenceinstitute.org) for professionalism and credibility."
+  },
+  {
+    "objectID": "website/iii-website-review.html#stale-or-ambiguous-dates-apply.qmd",
+    "href": "website/iii-website-review.html#stale-or-ambiguous-dates-apply.qmd",
+    "title": "Integrated Intelligence Institute — Quarto Website Review",
+    "section": "",
+    "text": "“Winter 2026 Internship (Jan–Mar): applications open Oct 25” — this deadline passed roughly five months ago (October 2025). If the cohort has been filled, replace with status text (“Cohort filled — next cycle opens …”). If not, clarify with a full date including year.\n“Summer 2026 Internship (Jun–Aug): applications open April 1” — this is tomorrow. Confirm the portal is ready to go live, or update the date.\n“Submit via our portal (coming soon)” — if the portal is still not live as of the April 1 deadline, applicants have no submission mechanism. This needs resolution urgently."
+  },
+  {
+    "objectID": "website/iii-website-review.html#content-thinness",
+    "href": "website/iii-website-review.html#content-thinness",
+    "title": "Integrated Intelligence Institute — Quarto Website Review",
+    "section": "",
+    "text": "Several pages consist of only a few lines and give the impression of an early-stage draft rather than a functioning institutional website:\n\n\n\n\n\n\n\n\nPage\nApproximate word count\nConcern\n\n\n\n\nAbout\n~50 words\nNo team bios, no institutional history, no governance structure\n\n\nPartners\n~25 words\nNo named partners, logos, or testimonials\n\n\nPrograms\n~60 words\nNo learning outcomes, instructor names, or syllabi\n\n\nResearch\n~50 words\nNo publications, project descriptions, or named investigators\n\n\nContact\n~15 words\nIncomplete (missing address), no contact form\n\n\n\nRecommendations:\n\nAbout: Add a mission statement with more detail, founding context, advisory board or leadership team, and institutional affiliations.\nPartners: Name at least a few partner organizations (with permission), add logos, and describe the nature of each collaboration.\nPrograms: Expand each program with learning objectives, duration details, prerequisites, and past cohort highlights.\nResearch: List at least working-paper titles, link to the Zenodo/GitHub repositories mentioned, and name principal investigators.\nContact: Add a contact form (Quarto supports embedding Google Forms, Formspree, or similar)."
+  },
+  {
+    "objectID": "website/iii-website-review.html#structural-and-configuration-suggestions",
+    "href": "website/iii-website-review.html#structural-and-configuration-suggestions",
+    "title": "Integrated Intelligence Institute — Quarto Website Review",
+    "section": "",
+    "text": "Only the site-level description is set in _quarto.yml. Adding description: to each page’s YAML front matter improves SEO (populates &lt;meta name=\"description\"&gt;) and produces better OpenGraph/Twitter card previews when pages are shared individually.\n\n\n\nThe config references images/favicon.png and images/logo.svg, but neither renders in the browser tab or navbar. Verify that these files exist in the repository and are deployed correctly.\n\n\n\nWith toc: true set globally, the homepage displays an “On this page” sidebar with just two entries (“What we do” and “Featured updates”). For a landing page with page-layout: full, suppress the TOC:\n---\ntitle: \"\"\npage-layout: full\ntoc: false\n---\n\n\n\nThe listing page works, but a single announcement from October 2025 (“We are live!”) is five months old. Regular content updates — even brief ones announcing application windows or new partnerships — would signal that the institute is active.\n\n\n\n_quarto.yml references styles/theme.scss, which presumably defines the .hero, .grid-3, .iii-card, and .btn-iii classes. If this file is incomplete or missing from the deployment, those classes have no effect and the homepage layout degrades (as observed). Ensure the SCSS file is committed and contains proper definitions for all custom classes."
+  },
+  {
+    "objectID": "website/iii-website-review.html#summary-of-recommended-actions-by-priority",
+    "href": "website/iii-website-review.html#summary-of-recommended-actions-by-priority",
+    "title": "Integrated Intelligence Institute — Quarto Website Review",
+    "section": "",
+    "text": "Fix raw HTML rendering on homepage — convert to Quarto-native grid/div syntax\nFix the footer year shortcode — hardcode or implement a Lua shortcode\nCorrect the broken Notion link in the index callout\nUpdate stale application dates and confirm the portal is ready\nFix Contact page — add hyperlinks, remove or populate the empty address field\nFix the Partners page link — use markdown syntax instead of raw &lt;a&gt;\nReconcile site-url with the actual domain (drop www)\nSuppress TOC on the homepage\nExpand thin content across About, Partners, Programs, Research, and Contact\nAdd page-level description metadata for SEO\nVerify favicon and logo deployment\nPublish fresh News posts to show institutional activity"
+  }
+]
