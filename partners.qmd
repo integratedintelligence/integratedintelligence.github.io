@@ -1,5 +1,0 @@
----
-title: "Partners"
----
-
-We collaborate with universities, labs, startups, and public agencies. Interested in partnering? <a href="contact.qmd">Contact us</a> to co‑design a program or host fellows.

@@ -1,7 +1,0 @@
----
-title: "Contact"
----
-
-- Email: integratedintelligence1@gmail.com
-- GitHub: https://github.com/integratedintelligence
-- Address: 
