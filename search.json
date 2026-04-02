@@ -1,31 +1,17 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "\nTraining the Next Generation of Integrated Intelligence Engineers & Scientists\n",
-    "section": "",
-    "text": "We convene interns, faculty, and industry partners to advance human–AI systems, trustworthy ML, and socio‑technical integration across the Pacific.\n\n\n\nApply for Internships Explore Programs"
-  },
-  {
-    "objectID": "index.html#what-we-do",
-    "href": "index.html#what-we-do",
-    "title": "\nTraining the Next Generation of Integrated Intelligence Engineers & Scientists\n",
-    "section": "What we do",
-    "text": "What we do\n\n\nInternships\nFunded research placements and OPT/CPT-aligned opportunities…\n\n\nTraining\nShort courses and bootcamps in ML, data engineering…\n\n\nResearch & Policy\nCollaborative studies, open data resources…"
-  },
-  {
-    "objectID": "index.html#featured-updates",
-    "href": "index.html#featured-updates",
-    "title": "\nTraining the Next Generation of Integrated Intelligence Engineers & Scientists\n",
-    "section": "Featured updates",
-    "text": "Featured updates\nWelcome! See our news for announcements, deadlines, and events."
-  },
-  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "Our mission is to expand opportunities and training for the next generation of integrated intelligence engineers and scientists. We bridge research and practice through fellowships, short courses, and collaborative projects across academia, industry, and the public sector.\nGuiding principles\n\nHuman‑centered, trustworthy AI\nCross‑disciplinary integration (engineering, social science, policy)\nOpen, reproducible research\nBilateral collaboration and career pathways"
+    "text": "Our mission is to expand opportunities and training for the next generation of integrated intelligence engineers and scientists. We bridge research and practice through internships, short courses, and collaborative projects across academia, industry, and the public sector.\nGuiding principles\n\nHuman‑centered, trustworthy AI\nCross‑disciplinary integration (engineering, social science, policy)\nOpen, reproducible research\nBilateral collaboration and career pathways"
+  },
+  {
+    "objectID": "news.html",
+    "href": "news.html",
+    "title": "News",
+    "section": "",
+    "text": "Latest announcements, deadlines, and research highlights.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome to the Integrated Intelligence Institute\n\n\n\nannouncement\n\n\n\n\n\n\n\n\n\nOct 10, 2025\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/2025-10-10-welcome.html",
@@ -53,7 +39,7 @@
     "href": "programs.html",
     "title": "Programs",
     "section": "",
-    "text": "Fellowships (OPT/CPT‑compatible)\n\n10–12 week research placements with mentors in academia/industry\nStipends; seminar series; capstone presentation; post‑program publishing support\n\n\n\nShort Courses & Bootcamps\n\nTopics: ML engineering, data pipelines, evaluation & red‑teaming, AI governance\nFormats: 1–2 day intensive, 4–6 week evening tracks\n\n\n\nWorkshops & Summer Institute\n\nAnnual, theme‑based convenings with hands‑on labs and policy roundtables"
+    "text": "Internships (OPT/CPT‑compatible)\n\n10–12 week research placements with mentors in academia/industry\nStipends; seminar series; capstone presentation; post‑program publishing support\n\n\n\nShort Courses & Bootcamps\n\nTopics: ML engineering, data pipelines, evaluation & red‑teaming, AI governance\nFormats: 1–2 day intensive, 4–6 week evening tracks\n\n\n\nWorkshops & Summer Institute\n\nAnnual, theme‑based convenings with hands‑on labs and policy roundtables"
   },
   {
     "objectID": "research.html",
@@ -67,14 +53,7 @@
     "href": "contact.html",
     "title": "Contact",
     "section": "",
-    "text": "Email: integratedintelligence1@gmail.com\nGitHub: https://github.com/integratedintelligence\nAddress:"
-  },
-  {
-    "objectID": "news.html",
-    "href": "news.html",
-    "title": "News",
-    "section": "",
-    "text": "Latest announcements, deadlines, and research highlights.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome to the Integrated Intelligence Institute\n\n\n\nannouncement\n\n\n\n\n\n\n\n\n\nOct 10, 2025\n\n\n\n\n\nNo matching items"
+    "text": "Email: info@integratedintelligenceinstitute.org\nGitHub: https://github.com/integratedintelligence"
   },
   {
     "objectID": "website/iii-website-review.html",
@@ -131,5 +110,26 @@
     "title": "Integrated Intelligence Institute — Quarto Website Review",
     "section": "",
     "text": "Fix raw HTML rendering on homepage — convert to Quarto-native grid/div syntax\nFix the footer year shortcode — hardcode or implement a Lua shortcode\nCorrect the broken Notion link in the index callout\nUpdate stale application dates and confirm the portal is ready\nFix Contact page — add hyperlinks, remove or populate the empty address field\nFix the Partners page link — use markdown syntax instead of raw &lt;a&gt;\nReconcile site-url with the actual domain (drop www)\nSuppress TOC on the homepage\nExpand thin content across About, Partners, Programs, Research, and Contact\nAdd page-level description metadata for SEO\nVerify favicon and logo deployment\nPublish fresh News posts to show institutional activity"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "\nTraining the Next Generation of Integrated Intelligence Engineers & Scientists\n",
+    "section": "",
+    "text": "We convene interns, faculty, and industry partners to advance human–AI systems, trustworthy ML, and socio‑technical integration across the Pacific.\n\n\n\nApply for Internships Explore Programs"
+  },
+  {
+    "objectID": "index.html#what-we-do",
+    "href": "index.html#what-we-do",
+    "title": "\nTraining the Next Generation of Integrated Intelligence Engineers & Scientists\n",
+    "section": "What we do",
+    "text": "What we do\n\n\nInternships\nFunded research placements and OPT/CPT-aligned opportunities…\n\n\nTraining\nProject-based Full Stack AI training …\n\n\nResearch & Policy\nCollaborative studies, open data resources…"
+  },
+  {
+    "objectID": "index.html#featured-updates",
+    "href": "index.html#featured-updates",
+    "title": "\nTraining the Next Generation of Integrated Intelligence Engineers & Scientists\n",
+    "section": "Featured updates",
+    "text": "Featured updates\nWelcome! See our news for announcements, deadlines, and events."
   }
 ]
