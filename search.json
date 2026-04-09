@@ -1,135 +1,149 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "Our mission is to expand opportunities and training for the next generation of integrated intelligence engineers and scientists. We bridge research and practice through internships, short courses, and collaborative projects across academia, industry, and the public sector.\nGuiding principles\n\nHuman‑centered, trustworthy AI\nCross‑disciplinary integration (engineering, social science, policy)\nOpen, reproducible research\nBilateral collaboration and career pathways"
+    "objectID": "projects/jobs_psci_2016_2026.html#dataset-at-a-glance",
+    "href": "projects/jobs_psci_2016_2026.html#dataset-at-a-glance",
+    "title": "Political Science Academic Job Market",
+    "section": "0.1 Dataset at a Glance",
+    "text": "0.1 Dataset at a Glance\n\n\n\n\n113\nIssues Processed\n\n\n10,168\nUnique Job Listings\n\n\n5,576\nUnique Institutions\n\n\n2016–2026\nYears Covered"
   },
   {
-    "objectID": "news.html",
-    "href": "news.html",
-    "title": "News",
-    "section": "",
-    "text": "Latest announcements, deadlines, and research highlights.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome to the Integrated Intelligence Institute\n\n\n\nannouncement\n\n\n\n\n\n\n\n\n\nOct 10, 2025\n\n\n\n\n\nNo matching items"
+    "objectID": "projects/jobs_psci_2016_2026.html#methodology",
+    "href": "projects/jobs_psci_2016_2026.html#methodology",
+    "title": "Political Science Academic Job Market",
+    "section": "1.1 Methodology",
+    "text": "1.1 Methodology\nThe data pipeline has three stages:\n\nPDF Extraction — pdftools::pdf_text() reads raw text from each monthly issue.\nPage 2 TOC Parsing — A regex pipeline targeting (N listings) strings on the Table of Contents page extracts the official, ground-truth count per subfield per issue.\nBody Text Scraping — The parser walks the document line-by-line, tracking section headers to assign subfields, then flushes a job record each time it detects an eJobs ID: marker."
   },
   {
-    "objectID": "posts/2025-10-10-welcome.html",
-    "href": "posts/2025-10-10-welcome.html",
-    "title": "Welcome to the Integrated Intelligence Institute",
-    "section": "",
-    "text": "We are live! Explore our programs, apply to fellowships, and follow our research updates."
+    "objectID": "projects/jobs_psci_2016_2026.html#verification-report",
+    "href": "projects/jobs_psci_2016_2026.html#verification-report",
+    "title": "Political Science Academic Job Market",
+    "section": "1.2 Verification Report",
+    "text": "1.2 Verification Report\nScraped record counts are compared to TOC counts for each issue × subfield combination. Rows flagged UNDER indicate the body-text parser missed some listings (usually due to formatting anomalies in older PDFs).\n\n\nShow Code\nverify %&gt;%\n  filter(status != \"OK\") %&gt;%\n  arrange(desc(abs(diff))) %&gt;%\n  select(source_file, subfield, toc_count, scraped_count, diff, status) %&gt;%\n  datatable(\n    caption   = \"Discrepancies: Scraped Count vs TOC Count\",\n    filter    = \"top\",\n    options   = list(pageLength = 10, scrollX = TRUE),\n    rownames  = FALSE\n  ) %&gt;%\n  formatStyle(\"status\",\n    backgroundColor = styleEqual(c(\"UNDER\",\"OVER\"), c(\"#fff3cd\",\"#f8d7da\")))"
   },
   {
-    "objectID": "partners.html",
-    "href": "partners.html",
-    "title": "Partners",
-    "section": "",
-    "text": "We collaborate with universities, labs, startups, and public agencies. Interested in partnering? Contact us to co‑design a program or host fellows."
+    "objectID": "projects/jobs_psci_2016_2026.html#summary-statistics-by-subfield",
+    "href": "projects/jobs_psci_2016_2026.html#summary-statistics-by-subfield",
+    "title": "Political Science Academic Job Market",
+    "section": "2.1 Summary Statistics by Subfield",
+    "text": "2.1 Summary Statistics by Subfield\n\n\nShow Code\nsummary_stats %&gt;%\n  kbl(caption = \"Summary Statistics by Subfield\",\n      align   = c(\"l\",\"r\",\"r\",\"r\",\"r\",\"r\",\"r\",\"r\",\"r\"),\n      col.names = c(\"Subfield\",\"N Jobs\",\"N w/ Salary\",\"Median Salary\",\n                    \"Mean Salary\",\"% TT\",\"% Visiting\",\"% Teaching Trk\",\"% Postdoc\")) %&gt;%\n  kable_styling(bootstrap_options = c(\"striped\",\"hover\",\"condensed\"),\n                full_width = TRUE, font_size = 13) %&gt;%\n  row_spec(0, bold = TRUE, background = \"#e9ecef\") %&gt;%\n  column_spec(1, bold = TRUE)\n\n\n\nSummary Statistics by Subfield\n\n\nSubfield\nN Jobs\nN w/ Salary\nMedian Salary\nMean Salary\n% TT\n% Visiting\n% Teaching Trk\n% Postdoc\n\n\n\n\nMethods\n1496\n191\n$65,000\n$72,254\n15.4%\n3.9%\n4.3%\n6.5%\n\n\nCP\n1490\n172\n$65,000\n$67,282\n16.4%\n2.9%\n3.0%\n7.0%\n\n\nIR\n1461\n179\n$60,000\n$66,753\n14.6%\n2.7%\n3.1%\n8.5%\n\n\nAP\n946\n105\n$65,000\n$68,731\n16.4%\n4.2%\n5.5%\n9.6%\n\n\nOther\n946\n94\n$65,000\n$67,877\n16.1%\n3.1%\n3.7%\n6.0%\n\n\nPT\n942\n78\n$65,000\n$64,371\n16.2%\n3.8%\n3.9%\n5.1%\n\n\nPL\n634\n60\n$75,000\n$74,696\n23.0%\n4.1%\n2.8%\n4.1%\n\n\nPP\n574\n61\n$72,500\n$78,408\n15.9%\n2.4%\n3.5%\n7.1%\n\n\nOpen\n525\n64\n$65,000\n$73,694\n12.6%\n1.5%\n4.2%\n7.4%\n\n\nNon-Academic\n501\n54\n$65,000\n$72,906\n12.4%\n2.2%\n3.4%\n4.6%\n\n\nAdmin\n494\n55\n$65,000\n$76,880\n14.4%\n3.6%\n4.0%\n3.8%\n\n\nPAdmin\n159\n15\n$65,000\n$67,880\n17.6%\n1.3%\n5.0%\n1.3%"
   },
   {
-    "objectID": "apply.html",
-    "href": "apply.html",
-    "title": "Apply",
-    "section": "",
-    "text": "Upcoming cohorts - Winter 2026 Internship (Jan–Mar): applications open Oct 25 - Summer 2026 Internship (Jun–Aug): applications open April 1\nEligibility - Undergraduate, master’s, or doctoral students in relevant fields - For U.S. placements, OPT/CPT or equivalent work authorization as applicable\nHow to apply 1. Prepare statement (500–800 words), CV, and portfolio (GitHub/papers) 2. Request 1–2 references 3. Submit via our portal (coming soon)"
+    "objectID": "projects/jobs_psci_2016_2026.html#trends-over-time",
+    "href": "projects/jobs_psci_2016_2026.html#trends-over-time",
+    "title": "Political Science Academic Job Market",
+    "section": "2.2 Trends Over Time",
+    "text": "2.2 Trends Over Time\n\nBy Subfield (Line)Annual Total (Bar)Heatmap\n\n\n\n\nShow Code\ntoc_year %&gt;%\n  filter(!is.na(year), !is.na(subfield)) %&gt;%\n  ggplot(aes(x = year, y = toc_count, colour = subfield)) +\n  geom_line(linewidth = 0.9) +\n  geom_point(size = 1.8) +\n  scale_colour_brewer(palette = \"Paired\") +\n  scale_x_continuous(breaks = pretty_breaks(n = 8)) +\n  labs(title    = \"Job Listings by Subfield Over Time\",\n       subtitle = \"Counts sourced from TOC page of each issue\",\n       x = NULL, y = \"Listings\", colour = \"Subfield\") +\n  theme(legend.position = \"bottom\")\n\n\n\n\n\n\n\n\n\n\n\n\n\nShow Code\nannual_totals %&gt;%\n  filter(!is.na(year)) %&gt;%\n  ggplot(aes(x = year, y = total, fill = total)) +\n  geom_col(show.legend = FALSE) +\n  geom_text(aes(label = comma(total)), vjust = -0.4, size = 3.2) +\n  scale_fill_viridis_c(option = \"D\", direction = -1) +\n  scale_x_continuous(breaks = pretty_breaks(n = 8)) +\n  scale_y_continuous(labels = comma, expand = expansion(mult = c(0, .1))) +\n  labs(title = \"Total Political Science Job Listings Per Year\",\n       x = NULL, y = \"Total Listings\")\n\n\n\n\n\n\n\n\n\n\n\n\n\nShow Code\ntoc_year %&gt;%\n  filter(!is.na(year), !is.na(subfield)) %&gt;%\n  ggplot(aes(x = year,\n             y = reorder(subfield, toc_count),\n             fill = toc_count)) +\n  geom_tile(colour = \"white\", linewidth = 0.4) +\n  geom_text(aes(label = toc_count), size = 2.6, colour = \"white\") +\n  scale_fill_viridis_c(option = \"C\", name = \"Listings\") +\n  scale_x_continuous(breaks = pretty_breaks(n = 8)) +\n  labs(title = \"Subfield × Year Heatmap\",\n       x = NULL, y = NULL) +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1))"
   },
   {
-    "objectID": "programs.html",
-    "href": "programs.html",
-    "title": "Programs",
-    "section": "",
-    "text": "Internships (OPT/CPT‑compatible)\n\n10–12 week research placements with mentors in academia/industry\nStipends; seminar series; capstone presentation; post‑program publishing support\n\n\n\nShort Courses & Bootcamps\n\nTopics: ML engineering, AI pipelines, evaluation & red‑teaming, AI governance\nFormats: 1–2 day intensive, 4–6 week evening tracks\n\n\n\nWorkshops & Summer Institute\n\nAnnual, theme‑based convenings with hands‑on labs and policy roundtables"
+    "objectID": "projects/jobs_psci_2016_2026.html#distribution-of-rank-categories",
+    "href": "projects/jobs_psci_2016_2026.html#distribution-of-rank-categories",
+    "title": "Political Science Academic Job Market",
+    "section": "3.1 Distribution of Rank Categories",
+    "text": "3.1 Distribution of Rank Categories\n\n\nShow Code\nrank_order &lt;- jobs %&gt;%\n  count(rank_category) %&gt;% arrange(n) %&gt;% pull(rank_category)\n\njobs %&gt;%\n  count(rank_category) %&gt;%\n  mutate(rank_category = factor(rank_category, levels = rank_order)) %&gt;%\n  ggplot(aes(x = n, y = rank_category, fill = n)) +\n  geom_col(show.legend = FALSE) +\n  geom_text(aes(label = comma(n)), hjust = -0.2, size = 3.4) +\n  scale_fill_viridis_c(option = \"E\", direction = -1) +\n  scale_x_continuous(expand = expansion(mult = c(0, .18))) +\n  labs(title = \"Job Listings by Rank Category\",\n       x = \"Number of Listings\", y = NULL)"
   },
   {
-    "objectID": "research.html",
-    "href": "research.html",
-    "title": "Research",
-    "section": "",
-    "text": "We support applied and policy‑relevant research on:\n\nHuman‑AI teaming & evaluation\nSafety, privacy, and auditing for ML\nAI readiness & innovation ecosystems\nSupply chains, semiconductors, and compute infrastructure\n\nOutputs - Working papers and briefs (DOIs via Zenodo) - Open datasets and code (GitHub org) - Practitioner guides and teaching materials"
+    "objectID": "projects/jobs_psci_2016_2026.html#rank-composition-by-subfield",
+    "href": "projects/jobs_psci_2016_2026.html#rank-composition-by-subfield",
+    "title": "Political Science Academic Job Market",
+    "section": "3.2 Rank Composition by Subfield",
+    "text": "3.2 Rank Composition by Subfield\n\n\nShow Code\njobs %&gt;%\n  filter(rank_category %in% tt_ranks, !is.na(subfield)) %&gt;%\n  count(subfield, rank_category) %&gt;%\n  group_by(subfield) %&gt;%\n  mutate(pct = n / sum(n)) %&gt;% ungroup() %&gt;%\n  ggplot(aes(x = reorder(subfield, -n, sum), y = pct,\n             fill = factor(rank_category, levels = rev(tt_ranks)))) +\n  geom_col() +\n  scale_y_continuous(labels = percent_format()) +\n  scale_fill_brewer(palette = \"Spectral\", name = \"Rank\") +\n  labs(title = \"Rank Composition by Subfield\",\n       x = NULL, y = \"Share of Listings\") +\n  theme(axis.text.x = element_text(angle = 35, hjust = 1))"
   },
   {
-    "objectID": "contact.html",
-    "href": "contact.html",
-    "title": "Contact",
-    "section": "",
-    "text": "Email: info@integratedintelligenceinstitute.org\nGitHub: https://github.com/integratedintelligence"
+    "objectID": "projects/jobs_psci_2016_2026.html#rank-trends-over-time",
+    "href": "projects/jobs_psci_2016_2026.html#rank-trends-over-time",
+    "title": "Political Science Academic Job Market",
+    "section": "3.3 Rank Trends Over Time",
+    "text": "3.3 Rank Trends Over Time\n\n\nShow Code\njobs %&gt;%\n  filter(rank_category %in% tt_ranks, !is.na(year)) %&gt;%\n  count(year, rank_category) %&gt;%\n  ggplot(aes(x = year, y = n, colour = rank_category)) +\n  geom_line(linewidth = 0.8) +\n  geom_point(size = 1.5) +\n  scale_colour_brewer(palette = \"Dark2\", name = \"Rank\") +\n  scale_x_continuous(breaks = pretty_breaks(n = 8)) +\n  labs(title = \"Rank Category Trends Over Time\",\n       x = NULL, y = \"Listings\") +\n  theme(legend.position = \"bottom\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nKey observation: Tenure-track assistant professor positions (Asst Prof (TT)) typically dominate the market, but watch the trend line for Visiting Professor and Teaching Track positions — a rising share may indicate structural changes in how departments staff courses."
   },
   {
-    "objectID": "website/iii-website-review.html",
-    "href": "website/iii-website-review.html",
-    "title": "Integrated Intelligence Institute — Quarto Website Review",
-    "section": "",
-    "text": "Date: March 31, 2026 Scope: Source files (_quarto.yml, *.qmd) and live rendering at integratedintelligenceinstitute.org\n\n\n\n\n\nThe most visible defect: the hero-section buttons and the “What we do” card interiors render as raw HTML source code rather than formatted elements. On the live site, visitors see literal strings like &lt;a class=\"btn-iii\" href=\"apply.qmd\"&gt;Apply for Fellowships&lt;/a&gt; and &lt;h3&gt;Fellowships&lt;/h3&gt;.\nRoot cause. Pandoc (which Quarto uses internally) distinguishes block-level HTML elements (&lt;div&gt;, &lt;p&gt;, &lt;h1&gt;–&lt;h6&gt;, &lt;table&gt;, etc.) from inline elements (&lt;a&gt;, &lt;span&gt;, &lt;em&gt;, etc.). A line that begins with an inline tag like &lt;a&gt; is not recognized as a raw HTML block; Pandoc escapes it and renders the markup as visible text. Similarly, &lt;h3&gt; and &lt;p&gt; tags nested inside &lt;div&gt; blocks can fail to parse when Pandoc’s block-vs-inline heuristics are disrupted by the surrounding container structure.\nRecommended fix. Replace the raw HTML cards and buttons with Quarto-native constructs. For the buttons, wrap them in a &lt;div&gt; or &lt;p&gt; block so Pandoc sees a block-level parent. For the three-column cards, use a Quarto grid layout (::: {.grid} / ::: {.g-col-4}) or Quarto’s built-in card shortcodes instead of raw &lt;div class=\"iii-card\"&gt;. Example:\n::: {.grid}\n::: {.g-col-4}\n### Fellowships\nFunded research placements and OPT/CPT-aligned opportunities...\n:::\n::: {.g-col-4}\n### Training\nShort courses and bootcamps in ML, data engineering...\n:::\n::: {.g-col-4}\n### Research & Policy\nCollaborative studies, open data resources...\n:::\n:::\nFor the CTA buttons, use Quarto’s link-button class or wrap them properly:\n&lt;div class=\"mt-4\"&gt;\n&lt;p&gt;&lt;a class=\"btn-iii\" href=\"/apply/\"&gt;Apply for Fellowships&lt;/a&gt;\n&lt;a class=\"btn btn-outline-light ms-2\" href=\"/programs/\"&gt;Explore Programs&lt;/a&gt;&lt;/p&gt;\n&lt;/div&gt;\n\n\n\nEvery page footer displays the literal string © {{&lt; year &gt;}} Integrated Intelligence Institute instead of the current year. The {{&lt; year &gt;}} syntax is not a built-in Quarto shortcode. Either install a shortcode extension that provides it, define a custom Lua filter, or simply hardcode the year:\npage-footer:\n  left: \"© 2026 Integrated Intelligence Institute\"\nAlternatively, create a custom shortcode at _extensions/year/year.lua:\nreturn {\n  ['year'] = function(args, kwargs)\n    return pandoc.Str(os.date(\"%Y\"))\n  end\n}\n\n\n\n\n\n\n\nThe “Featured updates” callout links to https://www.notion.so/news/ — an apparent copy-paste artifact from Notion. It should read:\nSee our [news](/news/) for announcements, deadlines, and events.\n\n\n\nThe inline HTML &lt;a href=\"contact.qmd\"&gt;Contact us&lt;/a&gt; is rendered with the external-link icon (because link-external-icon: true in the config applies to anything Quarto can’t resolve as an internal link). Replace with a Quarto markdown link:\nInterested in partnering? [Contact us](/contact/) to co-design a program or host fellows.\n\n\n\n_quarto.yml declares site-url: https://www.integratedintelligenceinstitute.org, but the site resolves at the bare domain without www. This mismatch affects canonical URLs, OpenGraph og:url tags, and sitemap entries. Update to:\nsite-url: https://integratedintelligenceinstitute.org\n(Or configure a DNS/redirect so www resolves to the bare domain, and keep the YAML as-is.)\n\n\n\n\n\n\nEmail and GitHub URL are plain text, not hyperlinks. Use markdown links:\n- Email: [integratedintelligence1@gmail.com](mailto:integratedintelligence1@gmail.com)\n- GitHub: [integratedintelligence](https://github.com/integratedintelligence)\n“Address:” is empty. Either populate it or remove the line. A trailing colon with no content looks like an oversight to visitors.\nGmail address for an institutional site. Consider a domain-based email (e.g., info@integratedintelligenceinstitute.org) for professionalism and credibility.\n\n\n\n\n\n\n“Winter 2026 Internship (Jan–Mar): applications open Oct 25” — this deadline passed roughly five months ago (October 2025). If the cohort has been filled, replace with status text (“Cohort filled — next cycle opens …”). If not, clarify with a full date including year.\n“Summer 2026 Internship (Jun–Aug): applications open April 1” — this is tomorrow. Confirm the portal is ready to go live, or update the date.\n“Submit via our portal (coming soon)” — if the portal is still not live as of the April 1 deadline, applicants have no submission mechanism. This needs resolution urgently.\n\n\n\n\n\nSeveral pages consist of only a few lines and give the impression of an early-stage draft rather than a functioning institutional website:\n\n\n\n\n\n\n\n\nPage\nApproximate word count\nConcern\n\n\n\n\nAbout\n~50 words\nNo team bios, no institutional history, no governance structure\n\n\nPartners\n~25 words\nNo named partners, logos, or testimonials\n\n\nPrograms\n~60 words\nNo learning outcomes, instructor names, or syllabi\n\n\nResearch\n~50 words\nNo publications, project descriptions, or named investigators\n\n\nContact\n~15 words\nIncomplete (missing address), no contact form\n\n\n\nRecommendations:\n\nAbout: Add a mission statement with more detail, founding context, advisory board or leadership team, and institutional affiliations.\nPartners: Name at least a few partner organizations (with permission), add logos, and describe the nature of each collaboration.\nPrograms: Expand each program with learning objectives, duration details, prerequisites, and past cohort highlights.\nResearch: List at least working-paper titles, link to the Zenodo/GitHub repositories mentioned, and name principal investigators.\nContact: Add a contact form (Quarto supports embedding Google Forms, Formspree, or similar).\n\n\n\n\n\n\n\nOnly the site-level description is set in _quarto.yml. Adding description: to each page’s YAML front matter improves SEO (populates &lt;meta name=\"description\"&gt;) and produces better OpenGraph/Twitter card previews when pages are shared individually.\n\n\n\nThe config references images/favicon.png and images/logo.svg, but neither renders in the browser tab or navbar. Verify that these files exist in the repository and are deployed correctly.\n\n\n\nWith toc: true set globally, the homepage displays an “On this page” sidebar with just two entries (“What we do” and “Featured updates”). For a landing page with page-layout: full, suppress the TOC:\n---\ntitle: \"\"\npage-layout: full\ntoc: false\n---\n\n\n\nThe listing page works, but a single announcement from October 2025 (“We are live!”) is five months old. Regular content updates — even brief ones announcing application windows or new partnerships — would signal that the institute is active.\n\n\n\n_quarto.yml references styles/theme.scss, which presumably defines the .hero, .grid-3, .iii-card, and .btn-iii classes. If this file is incomplete or missing from the deployment, those classes have no effect and the homepage layout degrades (as observed). Ensure the SCSS file is committed and contains proper definitions for all custom classes.\n\n\n\n\n\n\nFix raw HTML rendering on homepage — convert to Quarto-native grid/div syntax\nFix the footer year shortcode — hardcode or implement a Lua shortcode\nCorrect the broken Notion link in the index callout\nUpdate stale application dates and confirm the portal is ready\nFix Contact page — add hyperlinks, remove or populate the empty address field\nFix the Partners page link — use markdown syntax instead of raw &lt;a&gt;\nReconcile site-url with the actual domain (drop www)\nSuppress TOC on the homepage\nExpand thin content across About, Partners, Programs, Research, and Contact\nAdd page-level description metadata for SEO\nVerify favicon and logo deployment\nPublish fresh News posts to show institutional activity"
+    "objectID": "projects/jobs_psci_2016_2026.html#us-state-choropleth",
+    "href": "projects/jobs_psci_2016_2026.html#us-state-choropleth",
+    "title": "Political Science Academic Job Market",
+    "section": "4.1 US State Choropleth",
+    "text": "4.1 US State Choropleth\n\n\nShow Code\nstate_counts &lt;- jobs %&gt;%\n  filter(!is.na(state_raw), state_raw != \"District of Columbia\") %&gt;%\n  count(state_raw, name = \"n_jobs\") %&gt;%\n  mutate(region = str_to_lower(state_raw))\n\nus_map &lt;- map_data(\"state\") %&gt;%\n  left_join(state_counts, by = \"region\")\n\nggplot(us_map, aes(long, lat, group = group, fill = n_jobs)) +\n  geom_polygon(colour = \"white\", linewidth = 0.25) +\n  coord_fixed(1.3) +\n  scale_fill_viridis_c(option = \"A\", direction = -1,\n                        na.value = \"grey90\", name = \"Listings\",\n                        labels = comma) +\n  labs(title    = \"Political Science Job Listings by State\",\n       subtitle = \"Based on institution location extracted from org_name / unit fields\",\n       x = NULL, y = NULL) +\n  theme_void(base_size = 13) +\n  theme(legend.position = \"right\",\n        plot.title    = element_text(face = \"bold\", size = 14),\n        plot.subtitle = element_text(colour = \"grey45\", size = 10))"
   },
   {
-    "objectID": "website/iii-website-review.html#critical-rendering-bugs",
-    "href": "website/iii-website-review.html#critical-rendering-bugs",
-    "title": "Integrated Intelligence Institute — Quarto Website Review",
-    "section": "",
-    "text": "The most visible defect: the hero-section buttons and the “What we do” card interiors render as raw HTML source code rather than formatted elements. On the live site, visitors see literal strings like &lt;a class=\"btn-iii\" href=\"apply.qmd\"&gt;Apply for Fellowships&lt;/a&gt; and &lt;h3&gt;Fellowships&lt;/h3&gt;.\nRoot cause. Pandoc (which Quarto uses internally) distinguishes block-level HTML elements (&lt;div&gt;, &lt;p&gt;, &lt;h1&gt;–&lt;h6&gt;, &lt;table&gt;, etc.) from inline elements (&lt;a&gt;, &lt;span&gt;, &lt;em&gt;, etc.). A line that begins with an inline tag like &lt;a&gt; is not recognized as a raw HTML block; Pandoc escapes it and renders the markup as visible text. Similarly, &lt;h3&gt; and &lt;p&gt; tags nested inside &lt;div&gt; blocks can fail to parse when Pandoc’s block-vs-inline heuristics are disrupted by the surrounding container structure.\nRecommended fix. Replace the raw HTML cards and buttons with Quarto-native constructs. For the buttons, wrap them in a &lt;div&gt; or &lt;p&gt; block so Pandoc sees a block-level parent. For the three-column cards, use a Quarto grid layout (::: {.grid} / ::: {.g-col-4}) or Quarto’s built-in card shortcodes instead of raw &lt;div class=\"iii-card\"&gt;. Example:\n::: {.grid}\n::: {.g-col-4}\n### Fellowships\nFunded research placements and OPT/CPT-aligned opportunities...\n:::\n::: {.g-col-4}\n### Training\nShort courses and bootcamps in ML, data engineering...\n:::\n::: {.g-col-4}\n### Research & Policy\nCollaborative studies, open data resources...\n:::\n:::\nFor the CTA buttons, use Quarto’s link-button class or wrap them properly:\n&lt;div class=\"mt-4\"&gt;\n&lt;p&gt;&lt;a class=\"btn-iii\" href=\"/apply/\"&gt;Apply for Fellowships&lt;/a&gt;\n&lt;a class=\"btn btn-outline-light ms-2\" href=\"/programs/\"&gt;Explore Programs&lt;/a&gt;&lt;/p&gt;\n&lt;/div&gt;\n\n\n\nEvery page footer displays the literal string © {{&lt; year &gt;}} Integrated Intelligence Institute instead of the current year. The {{&lt; year &gt;}} syntax is not a built-in Quarto shortcode. Either install a shortcode extension that provides it, define a custom Lua filter, or simply hardcode the year:\npage-footer:\n  left: \"© 2026 Integrated Intelligence Institute\"\nAlternatively, create a custom shortcode at _extensions/year/year.lua:\nreturn {\n  ['year'] = function(args, kwargs)\n    return pandoc.Str(os.date(\"%Y\"))\n  end\n}"
+    "objectID": "projects/jobs_psci_2016_2026.html#listings-by-us-region",
+    "href": "projects/jobs_psci_2016_2026.html#listings-by-us-region",
+    "title": "Political Science Academic Job Market",
+    "section": "4.2 Listings by US Region",
+    "text": "4.2 Listings by US Region\n\n\nShow Code\njobs %&gt;%\n  count(region) %&gt;%\n  arrange(desc(n)) %&gt;%\n  ggplot(aes(x = reorder(region, n), y = n, fill = region)) +\n  geom_col(show.legend = FALSE) +\n  geom_text(aes(label = comma(n)), hjust = -0.2, size = 3.5) +\n  scale_fill_brewer(palette = \"Set2\") +\n  scale_y_continuous(expand = expansion(mult = c(0, .15))) +\n  coord_flip() +\n  labs(title = \"Job Listings by US Region\",\n       x = NULL, y = \"Listings\")"
   },
   {
-    "objectID": "website/iii-website-review.html#broken-and-misconfigured-links",
-    "href": "website/iii-website-review.html#broken-and-misconfigured-links",
-    "title": "Integrated Intelligence Institute — Quarto Website Review",
-    "section": "",
-    "text": "The “Featured updates” callout links to https://www.notion.so/news/ — an apparent copy-paste artifact from Notion. It should read:\nSee our [news](/news/) for announcements, deadlines, and events.\n\n\n\nThe inline HTML &lt;a href=\"contact.qmd\"&gt;Contact us&lt;/a&gt; is rendered with the external-link icon (because link-external-icon: true in the config applies to anything Quarto can’t resolve as an internal link). Replace with a Quarto markdown link:\nInterested in partnering? [Contact us](/contact/) to co-design a program or host fellows.\n\n\n\n_quarto.yml declares site-url: https://www.integratedintelligenceinstitute.org, but the site resolves at the bare domain without www. This mismatch affects canonical URLs, OpenGraph og:url tags, and sitemap entries. Update to:\nsite-url: https://integratedintelligenceinstitute.org\n(Or configure a DNS/redirect so www resolves to the bare domain, and keep the YAML as-is.)"
+    "objectID": "projects/jobs_psci_2016_2026.html#top-20-states",
+    "href": "projects/jobs_psci_2016_2026.html#top-20-states",
+    "title": "Political Science Academic Job Market",
+    "section": "4.3 Top 20 States",
+    "text": "4.3 Top 20 States\n\n\nShow Code\njobs %&gt;%\n  filter(!is.na(state_raw)) %&gt;%\n  count(state_raw, sort = TRUE) %&gt;%\n  slice_head(n = 20) %&gt;%\n  ggplot(aes(x = n, y = reorder(state_raw, n), fill = n)) +\n  geom_col(show.legend = FALSE) +\n  geom_text(aes(label = comma(n)), hjust = -0.2, size = 3.3) +\n  scale_fill_viridis_c(option = \"D\", direction = -1) +\n  scale_x_continuous(expand = expansion(mult = c(0, .15))) +\n  labs(title = \"Top 20 States by Job Listings\",\n       x = \"Listings\", y = NULL)"
   },
   {
-    "objectID": "website/iii-website-review.html#contact-page-issues-contact.qmd",
-    "href": "website/iii-website-review.html#contact-page-issues-contact.qmd",
-    "title": "Integrated Intelligence Institute — Quarto Website Review",
-    "section": "",
-    "text": "Email and GitHub URL are plain text, not hyperlinks. Use markdown links:\n- Email: [integratedintelligence1@gmail.com](mailto:integratedintelligence1@gmail.com)\n- GitHub: [integratedintelligence](https://github.com/integratedintelligence)\n“Address:” is empty. Either populate it or remove the line. A trailing colon with no content looks like an oversight to visitors.\nGmail address for an institutional site. Consider a domain-based email (e.g., info@integratedintelligenceinstitute.org) for professionalism and credibility."
+    "objectID": "projects/jobs_psci_2016_2026.html#salary-by-rank-and-subfield",
+    "href": "projects/jobs_psci_2016_2026.html#salary-by-rank-and-subfield",
+    "title": "Political Science Academic Job Market",
+    "section": "5.1 Salary by Rank and Subfield",
+    "text": "5.1 Salary by Rank and Subfield\n\n\nShow Code\nsal_df &lt;- jobs %&gt;% filter(!is.na(salary_est), salary_est &gt; 10000)\n\np_sal_rank &lt;- sal_df %&gt;%\n  filter(rank_category %in% tt_ranks) %&gt;%\n  ggplot(aes(x = reorder(rank_category, salary_est, median),\n             y = salary_est, fill = rank_category)) +\n  geom_boxplot(outlier.shape = 21, outlier.size = 1.5, show.legend = FALSE) +\n  scale_y_continuous(labels = dollar_format()) +\n  scale_fill_brewer(palette = \"Spectral\") +\n  coord_flip() +\n  labs(title = \"Salary Distribution by Rank\",\n       x = NULL, y = \"Estimated Annual Salary\")\n\np_sal_sf &lt;- sal_df %&gt;%\n  filter(!is.na(subfield)) %&gt;%\n  ggplot(aes(x = reorder(subfield, salary_est, median),\n             y = salary_est, fill = subfield)) +\n  geom_boxplot(outlier.shape = 21, outlier.size = 1.5, show.legend = FALSE) +\n  scale_y_continuous(labels = dollar_format()) +\n  scale_fill_brewer(palette = \"Paired\") +\n  coord_flip() +\n  labs(title = \"Salary Distribution by Subfield\",\n       x = NULL, y = \"Estimated Annual Salary\")\n\np_sal_rank / p_sal_sf"
   },
   {
-    "objectID": "website/iii-website-review.html#stale-or-ambiguous-dates-apply.qmd",
-    "href": "website/iii-website-review.html#stale-or-ambiguous-dates-apply.qmd",
-    "title": "Integrated Intelligence Institute — Quarto Website Review",
-    "section": "",
-    "text": "“Winter 2026 Internship (Jan–Mar): applications open Oct 25” — this deadline passed roughly five months ago (October 2025). If the cohort has been filled, replace with status text (“Cohort filled — next cycle opens …”). If not, clarify with a full date including year.\n“Summer 2026 Internship (Jun–Aug): applications open April 1” — this is tomorrow. Confirm the portal is ready to go live, or update the date.\n“Submit via our portal (coming soon)” — if the portal is still not live as of the April 1 deadline, applicants have no submission mechanism. This needs resolution urgently."
+    "objectID": "projects/jobs_psci_2016_2026.html#salary-trend-over-time",
+    "href": "projects/jobs_psci_2016_2026.html#salary-trend-over-time",
+    "title": "Political Science Academic Job Market",
+    "section": "5.2 Salary Trend Over Time",
+    "text": "5.2 Salary Trend Over Time\n\n\nShow Code\nsal_df %&gt;%\n  filter(!is.na(year)) %&gt;%\n  group_by(year) %&gt;%\n  summarise(median_sal = median(salary_est),\n            mean_sal   = mean(salary_est),\n            n = n(), .groups = \"drop\") %&gt;%\n  ggplot(aes(x = year)) +\n  geom_ribbon(aes(ymin = median_sal, ymax = mean_sal),\n              alpha = 0.18, fill = \"steelblue\") +\n  geom_line(aes(y = median_sal, colour = \"Median\"), linewidth = 1) +\n  geom_line(aes(y = mean_sal,   colour = \"Mean\"),   linewidth = 1, linetype = \"dashed\") +\n  scale_y_continuous(labels = dollar_format()) +\n  scale_x_continuous(breaks = pretty_breaks(n = 8)) +\n  scale_colour_manual(values = c(Median = \"steelblue\", Mean = \"tomato\"), name = NULL) +\n  labs(title    = \"Salary Trend Over Time\",\n       subtitle = paste0(\"n = \", comma(nrow(sal_df)),\n                         \" listings with explicit numeric salary\"),\n       x = NULL, y = \"Annual Salary\")"
   },
   {
-    "objectID": "website/iii-website-review.html#content-thinness",
-    "href": "website/iii-website-review.html#content-thinness",
-    "title": "Integrated Intelligence Institute — Quarto Website Review",
-    "section": "",
-    "text": "Several pages consist of only a few lines and give the impression of an early-stage draft rather than a functioning institutional website:\n\n\n\n\n\n\n\n\nPage\nApproximate word count\nConcern\n\n\n\n\nAbout\n~50 words\nNo team bios, no institutional history, no governance structure\n\n\nPartners\n~25 words\nNo named partners, logos, or testimonials\n\n\nPrograms\n~60 words\nNo learning outcomes, instructor names, or syllabi\n\n\nResearch\n~50 words\nNo publications, project descriptions, or named investigators\n\n\nContact\n~15 words\nIncomplete (missing address), no contact form\n\n\n\nRecommendations:\n\nAbout: Add a mission statement with more detail, founding context, advisory board or leadership team, and institutional affiliations.\nPartners: Name at least a few partner organizations (with permission), add logos, and describe the nature of each collaboration.\nPrograms: Expand each program with learning objectives, duration details, prerequisites, and past cohort highlights.\nResearch: List at least working-paper titles, link to the Zenodo/GitHub repositories mentioned, and name principal investigators.\nContact: Add a contact form (Quarto supports embedding Google Forms, Formspree, or similar)."
+    "objectID": "projects/jobs_psci_2016_2026.html#top-30-terms",
+    "href": "projects/jobs_psci_2016_2026.html#top-30-terms",
+    "title": "Political Science Academic Job Market",
+    "section": "6.1 Top 30 Terms",
+    "text": "6.1 Top 30 Terms\n\n\nShow Code\ntidy_words %&gt;%\n  count(word, sort = TRUE) %&gt;%\n  slice_head(n = 30) %&gt;%\n  ggplot(aes(x = n, y = reorder(word, n), fill = n)) +\n  geom_col(show.legend = FALSE) +\n  scale_fill_viridis_c(option = \"D\", direction = -1) +\n  scale_x_continuous(labels = comma) +\n  labs(title    = \"Top 30 Terms Across All Job Listings\",\n       subtitle = \"After removing stopwords; based on rank + unit fields\",\n       x = \"Frequency\", y = NULL)"
   },
   {
-    "objectID": "website/iii-website-review.html#structural-and-configuration-suggestions",
-    "href": "website/iii-website-review.html#structural-and-configuration-suggestions",
-    "title": "Integrated Intelligence Institute — Quarto Website Review",
-    "section": "",
-    "text": "Only the site-level description is set in _quarto.yml. Adding description: to each page’s YAML front matter improves SEO (populates &lt;meta name=\"description\"&gt;) and produces better OpenGraph/Twitter card previews when pages are shared individually.\n\n\n\nThe config references images/favicon.png and images/logo.svg, but neither renders in the browser tab or navbar. Verify that these files exist in the repository and are deployed correctly.\n\n\n\nWith toc: true set globally, the homepage displays an “On this page” sidebar with just two entries (“What we do” and “Featured updates”). For a landing page with page-layout: full, suppress the TOC:\n---\ntitle: \"\"\npage-layout: full\ntoc: false\n---\n\n\n\nThe listing page works, but a single announcement from October 2025 (“We are live!”) is five months old. Regular content updates — even brief ones announcing application windows or new partnerships — would signal that the institute is active.\n\n\n\n_quarto.yml references styles/theme.scss, which presumably defines the .hero, .grid-3, .iii-card, and .btn-iii classes. If this file is incomplete or missing from the deployment, those classes have no effect and the homepage layout degrades (as observed). Ensure the SCSS file is committed and contains proper definitions for all custom classes."
+    "objectID": "projects/jobs_psci_2016_2026.html#tf-idf-distinctive-terms-by-subfield",
+    "href": "projects/jobs_psci_2016_2026.html#tf-idf-distinctive-terms-by-subfield",
+    "title": "Political Science Academic Job Market",
+    "section": "6.2 TF-IDF: Distinctive Terms by Subfield",
+    "text": "6.2 TF-IDF: Distinctive Terms by Subfield\n\nTF-IDF (Term Frequency–Inverse Document Frequency) identifies words that are unusually common in one subfield relative to all others — revealing the distinctive vocabulary of each field.\n\n\n\nShow Code\ntidy_words %&gt;%\n  filter(!is.na(subfield)) %&gt;%\n  count(subfield, word) %&gt;%\n  bind_tf_idf(word, subfield, n) %&gt;%\n  group_by(subfield) %&gt;%\n  slice_max(tf_idf, n = 8) %&gt;% ungroup() %&gt;%\n  mutate(word = reorder_within(word, tf_idf, subfield)) %&gt;%\n  ggplot(aes(x = tf_idf, y = word, fill = subfield)) +\n  geom_col(show.legend = FALSE) +\n  facet_wrap(~ subfield, scales = \"free_y\", ncol = 3) +\n  scale_y_reordered() +\n  scale_fill_brewer(palette = \"Paired\") +\n  labs(title    = \"Most Distinctive Terms by Subfield (TF-IDF)\",\n       subtitle = \"Words uniquely associated with each subfield\",\n       x = \"TF-IDF Score\", y = NULL) +\n  theme(strip.text   = element_text(face = \"bold\"),\n        axis.text.y  = element_text(size = 8))"
   },
   {
-    "objectID": "website/iii-website-review.html#summary-of-recommended-actions-by-priority",
-    "href": "website/iii-website-review.html#summary-of-recommended-actions-by-priority",
-    "title": "Integrated Intelligence Institute — Quarto Website Review",
-    "section": "",
-    "text": "Fix raw HTML rendering on homepage — convert to Quarto-native grid/div syntax\nFix the footer year shortcode — hardcode or implement a Lua shortcode\nCorrect the broken Notion link in the index callout\nUpdate stale application dates and confirm the portal is ready\nFix Contact page — add hyperlinks, remove or populate the empty address field\nFix the Partners page link — use markdown syntax instead of raw &lt;a&gt;\nReconcile site-url with the actual domain (drop www)\nSuppress TOC on the homepage\nExpand thin content across About, Partners, Programs, Research, and Contact\nAdd page-level description metadata for SEO\nVerify favicon and logo deployment\nPublish fresh News posts to show institutional activity"
+    "objectID": "projects/jobs_psci_2016_2026.html#tf-idf-distinctive-terms-by-rank",
+    "href": "projects/jobs_psci_2016_2026.html#tf-idf-distinctive-terms-by-rank",
+    "title": "Political Science Academic Job Market",
+    "section": "6.3 TF-IDF: Distinctive Terms by Rank",
+    "text": "6.3 TF-IDF: Distinctive Terms by Rank\n\n\nShow Code\ntidy_words %&gt;%\n  filter(rank_category %in% tt_ranks) %&gt;%\n  count(rank_category, word) %&gt;%\n  bind_tf_idf(word, rank_category, n) %&gt;%\n  group_by(rank_category) %&gt;%\n  slice_max(tf_idf, n = 8) %&gt;% ungroup() %&gt;%\n  mutate(word = reorder_within(word, tf_idf, rank_category)) %&gt;%\n  ggplot(aes(x = tf_idf, y = word, fill = rank_category)) +\n  geom_col(show.legend = FALSE) +\n  facet_wrap(~ rank_category, scales = \"free_y\", ncol = 3) +\n  scale_y_reordered() +\n  scale_fill_brewer(palette = \"Spectral\") +\n  labs(title = \"Most Distinctive Terms by Rank (TF-IDF)\",\n       x = \"TF-IDF Score\", y = NULL) +\n  theme(strip.text  = element_text(face = \"bold\"),\n        axis.text.y = element_text(size = 8))"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "\nTraining the Next Generation of Integrated Intelligence Engineers & Scientists\n",
-    "section": "",
-    "text": "We convene interns, faculty, and industry partners to advance human–AI systems, trustworthy ML, and socio‑technical integration across the Pacific.\n\n\n\nApply for Internships Explore Programs"
+    "objectID": "projects/jobs_psci_2016_2026.html#top-bigrams",
+    "href": "projects/jobs_psci_2016_2026.html#top-bigrams",
+    "title": "Political Science Academic Job Market",
+    "section": "6.4 Top Bigrams",
+    "text": "6.4 Top Bigrams\n\n\nShow Code\njobs %&gt;%\n  unnest_tokens(bigram, full_text, token = \"ngrams\", n = 2) %&gt;%\n  separate(bigram, into = c(\"w1\",\"w2\"), sep = \" \") %&gt;%\n  filter(!w1%in% stop_words$word, !w2%in% stop_words$word,\n         !w1%in% ps_stopwords$word, !w2%in% ps_stopwords$word,\n         str_length(w1) &gt; 2, str_length(w2) &gt; 2,\n         !str_detect(w1,\"^\\\\d+$\"), !str_detect(w2,\"^\\\\d+$\")) %&gt;%\n  unite(bigram, w1, w2, sep = \" \") %&gt;%\n  count(bigram, sort = TRUE) %&gt;%\n  slice_head(n = 25) %&gt;%\n  ggplot(aes(x = n, y = reorder(bigram, n), fill = n)) +\n  geom_col(show.legend = FALSE) +\n  scale_fill_viridis_c(option = \"C\", direction = -1) +\n  scale_x_continuous(labels = comma) +\n  labs(title    = \"Top 25 Bigrams in Job Listings\",\n       subtitle = \"Common two-word phrases after stopword removal\",\n       x = \"Frequency\", y = NULL)"
   },
   {
-    "objectID": "index.html#what-we-do",
-    "href": "index.html#what-we-do",
-    "title": "\nTraining the Next Generation of Integrated Intelligence Engineers & Scientists\n",
-    "section": "What we do",
-    "text": "What we do\n\n\nInternships\nFunded research placements and OPT/CPT-aligned opportunities…\n\n\nTraining\nProject-based Full Stack AI training …\n\n\nResearch & Policy\nCollaborative studies, open data resources…"
+    "objectID": "projects/jobs_psci_2016_2026.html#word-clouds-by-subfield",
+    "href": "projects/jobs_psci_2016_2026.html#word-clouds-by-subfield",
+    "title": "Political Science Academic Job Market",
+    "section": "6.5 Word Clouds by Subfield",
+    "text": "6.5 Word Clouds by Subfield\n\nAmerican PoliticsComparative PoliticsInternational RelationsMethodologyPolitical TheoryPublic LawPublic Policy\n\n\n{r echo=FALSE} wc &lt;- tidy_words %&gt;% filter(subfield == \"AP\") %&gt;%     count(word, sort = TRUE) %&gt;% slice_head(n = 100)   if (nrow(wc) &gt;= 5) {     wordcloud(wc$word, wc$n, min.freq = 2, max.words = 80,               random.order = FALSE, rot.per = 0.25,               colors = brewer.pal(8, \"Dark2\"), scale = c(3.5, 0.5))     title(main = \"American Politics\", cex.main = 1.2)   }\n\n\n{r echo=FALSE} wc &lt;- tidy_words %&gt;% filter(subfield == \"CP\") %&gt;%     count(word, sort = TRUE) %&gt;% slice_head(n = 100)   if (nrow(wc) &gt;= 5) {     wordcloud(wc$word, wc$n, min.freq = 2, max.words = 80,               random.order = FALSE, rot.per = 0.25,               colors = brewer.pal(8, \"Dark2\"), scale = c(3.5, 0.5))     title(main = \"Comparative Politics\", cex.main = 1.2)   }\n\n\n{r echo=FALSE} wc &lt;- tidy_words %&gt;% filter(subfield == \"IR\") %&gt;%     count(word, sort = TRUE) %&gt;% slice_head(n = 100)   if (nrow(wc) &gt;= 5) {     wordcloud(wc$word, wc$n, min.freq = 2, max.words = 80,               random.order = FALSE, rot.per = 0.25,               colors = brewer.pal(8, \"Dark2\"), scale = c(3.5, 0.5))     title(main = \"International Relations\", cex.main = 1.2)   }\n\n\n{r echo=FALSE} wc &lt;- tidy_words %&gt;% filter(subfield == \"Methods\") %&gt;%     count(word, sort = TRUE) %&gt;% slice_head(n = 100)   if (nrow(wc) &gt;= 5) {     wordcloud(wc$word, wc$n, min.freq = 2, max.words = 80,               random.order = FALSE, rot.per = 0.25,               colors = brewer.pal(8, \"Dark2\"), scale = c(3.5, 0.5))     title(main = \"Methodology\", cex.main = 1.2)   }\n\n\n{r echo=FALSE} wc &lt;- tidy_words %&gt;% filter(subfield == \"PT\") %&gt;%     count(word, sort = TRUE) %&gt;% slice_head(n = 100)   if (nrow(wc) &gt;= 5) {     wordcloud(wc$word, wc$n, min.freq = 2, max.words = 80,               random.order = FALSE, rot.per = 0.25,               colors = brewer.pal(8, \"Dark2\"), scale = c(3.5, 0.5))     title(main = \"Political Theory\", cex.main = 1.2)   }\n\n\n{r echo=FALSE} wc &lt;- tidy_words %&gt;% filter(subfield == \"PL\") %&gt;%     count(word, sort = TRUE) %&gt;% slice_head(n = 100)   if (nrow(wc) &gt;= 5) {     wordcloud(wc$word, wc$n, min.freq = 2, max.words = 80,               random.order = FALSE, rot.per = 0.25,               colors = brewer.pal(8, \"Dark2\"), scale = c(3.5, 0.5))     title(main = \"Public Law\", cex.main = 1.2)   }\n\n\n{r echo=FALSE} wc &lt;- tidy_words %&gt;% filter(subfield == \"PP\") %&gt;%     count(word, sort = TRUE) %&gt;% slice_head(n = 100)   if (nrow(wc) &gt;= 5) {     wordcloud(wc$word, wc$n, min.freq = 2, max.words = 80,               random.order = FALSE, rot.per = 0.25,               colors = brewer.pal(8, \"Dark2\"), scale = c(3.5, 0.5))     title(main = \"Public Policy\", cex.main = 1.2)   }"
   },
   {
-    "objectID": "index.html#featured-updates",
-    "href": "index.html#featured-updates",
-    "title": "\nTraining the Next Generation of Integrated Intelligence Engineers & Scientists\n",
-    "section": "Featured updates",
-    "text": "Featured updates\nWelcome! See our news for announcements, deadlines, and events."
+    "objectID": "projects/jobs_psci_2016_2026.html#r-session-info",
+    "href": "projects/jobs_psci_2016_2026.html#r-session-info",
+    "title": "Political Science Academic Job Market",
+    "section": "8.1 R Session Info",
+    "text": "8.1 R Session Info\n\n\nShow Code\nsessionInfo()\n\n\nR version 4.5.3 (2026-03-11)\nPlatform: aarch64-apple-darwin20\nRunning under: macOS Tahoe 26.4\n\nMatrix products: default\nBLAS:   /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRblas.0.dylib \nLAPACK: /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.1\n\nlocale:\n[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8\n\ntime zone: America/Chicago\ntzcode source: internal\n\nattached base packages:\n[1] stats     graphics  grDevices utils     datasets  methods   base     \n\nother attached packages:\n [1] ggtext_0.1.2       plotly_4.11.0      DT_0.33            kableExtra_1.4.0  \n [5] knitr_1.50         patchwork_1.3.2    maps_3.4.3         ggridges_0.5.6    \n [9] viridis_0.6.5      viridisLite_0.4.2  wordcloud_2.6      RColorBrewer_1.1-3\n[13] SnowballC_0.7.1    tidytext_0.4.2     lubridate_1.9.5    scales_1.4.0      \n[17] ggplot2_4.0.0      tibble_3.3.0       stringr_1.6.0      tidyr_1.3.2       \n[21] dplyr_1.2.0       \n\nloaded via a namespace (and not attached):\n [1] janeaustenr_1.0.0 sass_0.4.10       generics_0.1.4    xml2_1.5.1       \n [5] stringi_1.8.7     lattice_0.22-9    digest_0.6.39     magrittr_2.0.4   \n [9] evaluate_1.0.5    grid_4.5.3        timechange_0.4.0  fastmap_1.2.0    \n[13] jsonlite_2.0.0    Matrix_1.7-4      gridExtra_2.3     httr_1.4.7       \n[17] purrr_1.2.1       crosstalk_1.2.1   jquerylib_0.1.4   codetools_0.2-20 \n[21] lazyeval_0.2.2    textshaping_1.0.1 cli_3.6.5         rlang_1.1.7      \n[25] tokenizers_0.3.0  cachem_1.1.0      withr_3.0.2       yaml_2.3.10      \n[29] tools_4.5.3       vctrs_0.7.2       R6_2.6.1          lifecycle_1.0.5  \n[33] htmlwidgets_1.6.4 pkgconfig_2.0.3   bslib_0.9.0       pillar_1.11.1    \n[37] gtable_0.3.6      data.table_1.17.2 glue_1.8.0        Rcpp_1.1.0       \n[41] systemfonts_1.2.3 xfun_0.54         tidyselect_1.2.1  rstudioapi_0.17.1\n[45] farver_2.1.2      htmltools_0.5.8.1 labeling_0.4.3    svglite_2.2.1    \n[49] rmarkdown_2.30    compiler_4.5.3    S7_0.2.0          gridtext_0.1.5"
+  },
+  {
+    "objectID": "projects/jobs_psci_2016_2026.html#data-pipeline-summary",
+    "href": "projects/jobs_psci_2016_2026.html#data-pipeline-summary",
+    "title": "Political Science Academic Job Market",
+    "section": "8.2 Data Pipeline Summary",
+    "text": "8.2 Data Pipeline Summary\n\n\n\n\n\n\n\n\nStage\nTool\nOutput\n\n\n\n\nPDF text extraction\npdftools::pdf_text()\nRaw character vectors\n\n\nTOC count parsing\nstringr regex on pages 1–3\nps_jobs_toc_counts.csv\n\n\nBody text scraping\nLine-by-line section tracker + eJobs ID flush\nps_jobs_all_raw.csv\n\n\nDeduplication\ndplyr::distinct(ejobs_id)\nps_jobs_all_unique.csv\n\n\nVerification\nTOC count vs scraped count per issue × subfield\nps_jobs_verification.csv\n\n\nAnalytics\nggplot2, tidytext, maps\nThis report"
+  },
+  {
+    "objectID": "projects/jobs_psci_2016_2026.html#subfield-code-reference",
+    "href": "projects/jobs_psci_2016_2026.html#subfield-code-reference",
+    "title": "Political Science Academic Job Market",
+    "section": "8.3 Subfield Code Reference",
+    "text": "8.3 Subfield Code Reference\n\n\n\nCode\nFull Name\n\n\n\n\nAP\nAmerican Government and Politics\n\n\nCP\nComparative Politics\n\n\nIR\nInternational Relations\n\n\nMethods\nMethodology\n\n\nPT\nPolitical Theory\n\n\nPL\nPublic Law\n\n\nPP\nPublic Policy\n\n\nPAdmin\nPublic Administration\n\n\nAdmin\nAdministration\n\n\nNon-Academic\nNon-Academic Positions\n\n\nOpen\nOpen Subfield\n\n\nOther\nOther"
   }
 ]
